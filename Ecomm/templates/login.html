@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+        html{
+        background-image: linear-gradient(cornflowerblue,rgba(110, 98, 98, 0.671));
+        background-repeat: no-repeat;
+        background-size: cover;
+       
+    }
+    body{
+        text-align: center;
+        height:1000px;
+    }
+    form{
+        border: 3px solid blue;
+        width:300px;
+        text-align: center;
+        margin-top: 100px;
+        margin-left: 35%;
+        padding: 8px;
+        padding-top: 50px;
+        padding: 40px;
+        padding-bottom: 50px;
+        background-color: aqua;
+        
+    }
+   
+    input [type=text]{
+        padding: 10px;
+        border: 1px solid goldenrod;
+        padding: 10px;
+    }
+    input [type=password]{
+        padding: 10px;
+        border: 1px solid goldenrod;
+        
+    }
+</style>
+<body>
+<!-- 
+    messge for any invalid credentials if entered -->
+    {% for message in messages %}
+    <h5>{{message}}</h5>
+    {% endfor %}
+    <form method="POST" action="login">
+        {% csrf_token %}
+        <center><b>LOGIN</b></center><br>
+        <label for="username">Username</label>
+        <input type="text" name="username" id=""><br><br>
+        <label for="password">password</label>
+        <input type="password" name ="password"><br>
+        <input type="submit"><br>
+        <a href="http://127.0.0.1:8000/register">register</a>
+    </form>
+   
+</body>
+</html>

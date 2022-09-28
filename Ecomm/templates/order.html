@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    th {
+       background-color: cornflowerblue; 
+    }
+    tr{
+        border: 3px solid red;
+    }
+    td{
+        padding: 5px;
+    }
+    th{
+        padding: 7px;
+    }
+</style>
+<body>
+    <table>
+        <tr>
+            <th>Productname</th>
+            <th>quantity</th>
+            <th>Address </th>
+            <th>date</th>
+        </tr>
+        {% for order in Purchased_item%}
+        <tr>
+            
+            <td>{{order.productname}}</td>
+        <td>{{order.quantity}}</td>
+        <td>{{order.Address}}</td>
+        <td>{{order.date}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

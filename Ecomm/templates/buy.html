@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   html{
+    background-color: aquamarine;
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family: "Times New Roman", Times, serif;
+    }
+ 
+
+
+section{
+    padding: 5px;
+    width: 40%;
+   
+}
+img {
+        width: 37%;
+        height: 40%;
+       
+        margin-left: 30%;
+        margin-top: 5px;
+        text-align: center;
+        border: 10px solid black;
+
+        border-radius: 20px;
+    background-color: white;
+    padding: 10px 10px  ;
+    }
+button{
+    background-color: darkgoldenrod;
+    color: white;
+    padding: 7px;
+
+}
+
+table{
+    background-color: bisque;
+    border: 3px solid black;
+    padding: 5px;
+    padding-top: 3px;
+    padding-top: 3px;
+   
+   
+   
+}
+tr{
+    border-bottom: 5px solid black;
+   
+
+
+}
+th{
+    background-color: cadetblue;
+}
+td{
+    padding: 5px;
+    border: 2px solid black;
+
+    padding-right:50px ;
+    
+}
+
+</style>
+<body>
+   <center>
+    <h1>
+        {{phone.name}}
+    </h1>
+  
+   </center> 
+  <div class="product">
+
+        <img src="{{phone.imgurl}}">
+ 
+    <br>
+    <div class="content">
+       
+       <center> 
+        <br>
+       <table>
+        <b>DEVICE DESCRIPTION</b>
+            <tr>
+                <th>Device Specs</th>
+                <th>Answer</th>
+            </tr>
+            <tr>
+
+            </tr>
+            <tr>
+                <td>Device name</td>
+                <td>{{phone.name}}</td>
+            </tr>
+            <tr>
+                <td>OS</td>
+                <td>{{phone.OS}}</td>
+            </tr>
+            <tr>
+                <td>RAM</td>
+                <td>{{phone.RAM}}</td>
+            </tr>
+            <tr>
+                <td>Devuce storage</td>
+                <td>{{phone.Device_storage}}</td>
+            </tr>
+        </table>
+          <br>
+<!-- 
+this is the form for placiing orders -->
+
+                <form method="POST" action="buy">
+                    {%csrf_token%}
+                    
+                     <label for="address">Address</label>
+                    <input type="text" name="address"><br>
+                    <label for="quantity">Quantity</label>
+                    <input type="number" name="quantity" value="1" id=""><br>
+                    <input type="Submit" value="Purchase">
+                </form>
+           
+        </center>
+        <h2>Other Specifications</h2>
+        <section>
+        <!-- description of phone added in the database -->
+            {{phone.description}}
+       </section>
+    
+   
+
+
+</body>
+</html>

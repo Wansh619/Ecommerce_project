@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    html {
+        /* background-image: linear-gradient(rgba(0, 204, 255, 0), rgba(110, 98, 98, 0.671)); */
+        background-image: url(https://static.vecteezy.com/system/resources/thumbnails/006/304/518/small/white-and-bright-gray-gradient-background-with-dynamic-diagonal-stripe-lines-and-halftone-texture-modern-and-simple-template-banner-design-luxury-and-elegant-concept-illustration-vector.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+    }
+
+    .box {
+
+       background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTINLeI6yBN7njhuCmXc0aHDkf5Yy421Roi-Q&usqp=CAU);
+
+        width: 250px;
+        height: 402px;
+        padding-bottom: 3px;
+        border: 3px solid black;
+        border-radius: 20px;
+        position: relative;
+
+    }
+    .box:hover{
+       border: 3px solid orange;
+    }
+    .product {
+        display: block;
+        text-align: right;
+
+
+    }
+
+    .box div {
+        text-align: center;
+
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSwA5NfBkIAdDZ62R2XVjSo2rkAECCfBjflg&usqp=CAU);
+        padding-bottom: 22px;
+        border-radius: 20px;
+       
+
+
+    }
+ 
+    .Purchase {
+        background-color: goldenrod;
+        text-decoration: none;
+        padding: 5px;
+        color: white;
+        border: 2px solid red;
+    }
+.Purchase:hover{
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+}
+    .blank {
+        height: 600px
+    }
+
+    .nav_bar {
+        text-align: right;
+    }
+
+    img {
+        width: 200px;
+        height: 50%;
+        margin-right: 50%;
+        margin-top: 5px;
+        text-align: center;
+ 
+
+    }
+
+    .nav {
+
+        border: 1px solid red;
+        padding: 5px;
+        box-sizing: border-box;
+        background-color: cornflowerblue;
+        color: white;
+        border-radius: 5px;
+    }
+
+    .fix {
+        float: right;
+
+    }
+</style>
+
+<body>
+
+
+    <div class="nav_bar">
+        {%if user.is_authenticated %}
+        <a href="http://127.0.0.1:8000/logout" class="nav">Logout</a>
+
+        {%else%}
+        <a href="http://127.0.0.1:8000/login" class="nav">Login</a>
+        <a href="http://127.0.0.1:8000/register" class="nav">Register</a>
+        {%endif%}
+    </div>
+    {% if user.is_authenticated %}
+    <center>
+        <h1>HI THERE ,{{user.username}}</h1>
+    </center>
+    {% else %}
+    <center>
+        <h1>WELCOME</h1>
+    </center>
+    {% endif%}
+    <!-- responsible for printing all messages -->
+    {% for message in messages %}
+    <h5>{{message}}</h5>
+    {% endfor %}
+    <div class="product">
+        <!-- this is for adding all ofr phone details in our homepage -->
+
+        {% for phone in Phones %}
+        <div class="box">
+            <img src="{{phone.imgurl}}" width="10px" height="10px">
+
+
+            <div>
+                
+                <b>
+                    <p>{{phone.name}}</p>
+                </b>
+                <b>PRICE:</b>
+                <p><b>Rs :</b>{{phone.price}}/-</p>
+                <p>
+                    <b>Description :</b> {{phone.description | truncatewords:2}}
+                </p>
+                <a href="/buy/{{phone.name}}" class="Purchase">Purchase</a>
+            </div>
+
+
+        </div>
+        <br>
+        {% endfor %}
+    </div>
+
+</body>
+
+</html>
