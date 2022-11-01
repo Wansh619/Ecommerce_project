@@ -15,7 +15,7 @@ import random
 # this is the email id and the password which we will be using for our website to generate otp via email 
 # NOTE-> the email could be a spam  So check for email in spam section to verify otp
 
-PASSWORD='cmextopvyhmqmmlp'
+PASSWORD='ijrrgrwxzaqwnbgw'
 EMAIL='unitycreator619@gmail.com'
 
 # initialising our gmal server at the respective port for sending verificcation emails
