@@ -33,6 +33,9 @@ class Otp(models.Model):
     email=models.CharField(max_length=15,default='?')
     password=models.CharField(max_length=18,default='?')
 
+    def __str__(self):
+        return self.username
+
 
 
 
@@ -42,6 +45,9 @@ class Purchased_item(models.Model):
     Address=models.CharField(max_length=100)
     quantity=models.IntegerField(default=1)
     date= models.DateTimeField(default =datetime.now , blank=True)
+
+    def __str__(self) -> str:
+        return self.productname
 
 
 

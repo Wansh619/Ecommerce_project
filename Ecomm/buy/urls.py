@@ -7,16 +7,14 @@ urlpatterns=[
 
 
 path('',views.index, name='index'),
-path('login',views.login,name='login'),
 path('buy/<str:p>',views.buy,name='buy'),
-path('register',views.register,name='register'),
-path('otp_verf',views.otp_verf,name='otp_verf'),
-path('logout',views.log_out,name='logout'),
+# path('login',views.login,name='login'),
+# path('register',views.register,name='register'),
+# path('otp_verf',views.otp_verf,name='otp_verf'),
+# path('logout',views.log_out,name='logout'),
 
 
 # this is a secretely generatede webpage for the seeing the registered orders on their data
-
-   
  path('order',views.order,name ='order')
 ]
 
